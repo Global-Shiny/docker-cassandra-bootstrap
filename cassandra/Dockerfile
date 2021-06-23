@@ -1,4 +1,6 @@
-FROM cassandra:3.11
+FROM cassandra:latest
+
+RUN apt install -y gnupg gnupg2
 
 # install wget, for the custom metrics-graphite reporter
 #RUN set -x \
