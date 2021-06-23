@@ -16,7 +16,7 @@ services:
 #      - ./cassandra/config/graphite.cassandra.yaml:/etc/cassandra/graphite.yaml
 #      - ./cassandra/config/filebeat.yml:/etc/filebeat/filebeat.yml
       - ./cassandra/config/prometheus.yml:/prometheus/prometheus.yml
-      - ./data/cassandra:/var/lib/cassandra
+      - /dev/cassandra/data:/var/lib/cassandra
 
   cqlsh:
     image: cassandra:3.11
@@ -36,8 +36,8 @@ services:
     links:
       - cassandra:cassandra
     ports:
-      - "8080:8080"
-      - "8081:8081"
+      - "8180:8080"
+      - "8181:8081"
 
   grafana:
     image: grafana/grafana:4.5.2
