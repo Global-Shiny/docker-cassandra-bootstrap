@@ -16,7 +16,7 @@ services:
 #      - ./cassandra/config/graphite.cassandra.yaml:/etc/cassandra/graphite.yaml
 #      - ./cassandra/config/filebeat.yml:/etc/filebeat/filebeat.yml
       - ./cassandra/config/prometheus.yml:/prometheus/prometheus.yml
-      - /dev/cassandra/data:/var/lib/cassandra
+      - ./data/cassandra:/var/lib/cassandra
 
   cqlsh:
     image: cassandra:3.11
