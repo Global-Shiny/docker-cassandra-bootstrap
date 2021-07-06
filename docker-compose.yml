@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   cassandra:
-    build: cassandra
+    image:  docker-cassandra-bootstrap_cassandra:latest
     environment: 
       - MAX_HEAP_SIZE=500M
       - HEAP_NEWSIZE=100M
