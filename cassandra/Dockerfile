@@ -14,8 +14,7 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated  libproto
 #RUN echo "deb http://deb.debian.org/debian jessie main" >> /etc/apt/sources.list.d/pkg.ci.collectd.org.list 
 RUN apt-get install -y   --allow-unauthenticated rrdtool libmicrohttpd12 
 RUN rm -rf /var/lib/apt/lists/*
-RUN touch /var/log/collectd.log \
-    && chown cassandra:cassandra /var/log/collectd.log
+RUN touch /var/log/collectd.log && chown cassandra:cassandra /var/log/collectd.log
 
 # install Prometheus JMX exporter
 # NOTE: 0.10 will not work until this issue is resolved:
