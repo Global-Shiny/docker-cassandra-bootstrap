@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   cassandra:
-    image:  docker-cassandra-bootstrap_cassandra:latest
+    image:  cassandra:latest
     environment: 
       - MAX_HEAP_SIZE=500M
       - HEAP_NEWSIZE=100M
@@ -18,10 +18,10 @@ services:
       - "9042:9042" # native protocol clients
       - "9160:9160" # thrift clients
     volumes:
-      - ./cassandra/config/collectd.cassandra.conf:/etc/collectd/collectd.conf
+      # - ./cassandra/config/collectd.cassandra.conf:/etc/collectd/collectd.conf
     #  - ./cassandra/config/graphite.cassandra.yaml:/etc/cassandra/graphite.yaml
     #  - ./cassandra/config/filebeat.yml:/etc/filebeat/filebeat.yml
-      - ./cassandra/config/prometheus.yml:/prometheus/prometheus.yml
+      # - ./cassandra/config/prometheus.yml:/prometheus/prometheus.yml
       - ./data/cassandra:/var/lib/cassandra
 
   cqlsh:
