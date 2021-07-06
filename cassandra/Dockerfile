@@ -12,7 +12,7 @@ RUN set -x
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated collectd collectd-utils
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated  libprotobuf-c-dev libmicrohttpd-dev 
 #RUN echo "deb http://deb.debian.org/debian jessie main" >> /etc/apt/sources.list.d/pkg.ci.collectd.org.list 
-#RUN apt-get install -y   --allow-unauthenticated librrd4 libmicrohttpd10 
+RUN apt-get install -y   --allow-unauthenticated rrdtool libmicrohttpd12 
 RUN rm -rf /var/lib/apt/lists/*
 RUN touch /var/log/collectd.log \
     && chown cassandra:cassandra /var/log/collectd.log
