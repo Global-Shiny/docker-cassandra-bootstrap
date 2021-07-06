@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   cassandra:
-    image: docker-cassandra-bootstrap_cassandra:latest
+    build: cassandra
     env_file:
       - cassandra/cassandra.env
     ports:
@@ -19,13 +19,13 @@ services:
       - ./data/cassandra:/var/lib/cassandra
 
   cqlsh:
-    image: cassandra:3.11
+    image: cassandra:latest
     entrypoint: cqlsh cassandra
     volumes:
       - ./cassandra/schema.cql:/schema.cql
 
   nodetool:
-    image: cassandra:3.11
+    image: cassandra:latest
     entrypoint: nodetool -h cassandra -u cassandraUser -pw cassandraPass
     command: help
 
